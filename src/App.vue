@@ -1,7 +1,9 @@
 <template>
   <div class="app__container">
     <home-header />
-    <home-hero />
+    <main>
+      <home-hero />
+    </main>
   </div>
 </template>
 <script setup>
@@ -11,16 +13,26 @@ import HomeHero from '@/components/HomeHero/HomeHero.vue'
 </script>
 
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@100;200;300;400;500;600;700;800;900');
-
 :root {
   --font: 'Open Sans', sans;
   --max-width: 1110px;
-  --c-bg: #1d1d1b;
+  --c-black: #1d1d1b;
   --c-white: #ffffff;
+  --c-green: #23d1ae;
+  --c-green-2: #006d5c;
+  --c-grey: #666666;
+  --c-yellow: #ffe810;
+  --bg: var(--c-black)
 }
+
 *, :before, :after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: var(--bg);
 }
 
 body {
@@ -31,11 +43,23 @@ body {
   line-height: 24px;
   font-size: 16px;
   font-weight: 400;
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(100deg, rgba(29, 29, 27, 0) 0%, #1D1D1B 55%), linear-gradient(180deg, rgba(29, 29, 27, 0) 0%, #1D1D1B 100%), linear-gradient(110deg, #23D1AE 0%, rgba(1, 50, 35, 0) 59.93%);
+  background: linear-gradient(100deg, rgba(29, 29, 27, 0) 0%, #1D1D1B 55%), linear-gradient(180deg, rgba(29, 29, 27, 0) 0%, #1D1D1B 100%), linear-gradient(110deg, #23D1AE 0%, rgba(1, 50, 35, 0) 60%);
   opacity: 0.8;
   color: var(--c-white);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color .5s;
+
+  &:hover {
+    color: var(--c-green);
+  }
+}
+
+.icon {
+  transition: fill .5s, stroke .5s;
 }
 
 .app__container {
@@ -45,7 +69,6 @@ body {
   transition: background-color .5s;
   padding: 0;
   margin: 0;
-  height: calc(100vh - 64px);
   background: {
     repeat: no-repeat;
     image: url("static/images/background.png");

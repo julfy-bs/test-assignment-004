@@ -2,7 +2,7 @@
   <inline-svg
     :title="addTitle(props.fileName)"
     :src="require(`@/assets/icons/${checkFileName(props.fileName)}.svg`)"
-    fill="currentColor"
+    class="icon"
   />
 </template>
 
