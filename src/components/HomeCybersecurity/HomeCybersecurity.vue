@@ -97,6 +97,7 @@ const preferences = [
   font-weight: 300;
   font-size: 24px;
   line-height: 27px;
+  margin-bottom: 22px;
 
   @media (min-width: 1024px) {
     font-size: 28px;

@@ -1,5 +1,8 @@
 <template>
-  <section class="purchase">
+  <section
+    id="purchase"
+    class="purchase"
+  >
     <div class="purchase__container">
       <div
         ref="discount"
@@ -107,7 +110,7 @@
 
 <script setup>
 import ElementSvg from '@/components/UI/ElementSvg/ElementSvg.vue'
-import { ref } from 'vue'
+import { onBeforeUnmount, onMounted, ref } from 'vue'
 
 const select = ref(null)
 const discount = ref(null)
@@ -137,12 +140,13 @@ const toggleSelect = () => {
 <style lang="scss" scoped>
 .purchase {
   padding-top: 83px;
-  position: -webkit-sticky;
   position: sticky;
   z-index: 2;
-  bottom: 0;
+  top: 0;
+  transform: translate(0, 80vh);
 
   @media (min-width: 1024px) {
+    padding: 0;
     top: 40px;
     bottom: auto;
     display: block;
@@ -172,7 +176,7 @@ const toggleSelect = () => {
 
 .purchase__container {
   position: relative;
-  max-width: var(--max-width);
+  max-width: minmax(var(--max-width), 100%);
   padding: 20px 16px;
   display: flex;
   flex-flow: column nowrap;
@@ -211,7 +215,7 @@ const toggleSelect = () => {
 }
 
 .product__description {
-  flex: 1 1 40%;
+  flex: 1 1 100%;
   display: flex;
   align-items: center;
   flex-wrap: nowrap;
@@ -219,8 +223,10 @@ const toggleSelect = () => {
   padding-bottom: 20px;
 
   @media (min-width: 1024px) {
+    flex: 1 1 40%;
     padding: 0;
     gap: 32px;
+    min-width: 350px;
     max-width: 458px;
   }
 }
@@ -290,7 +296,7 @@ const toggleSelect = () => {
 }
 
 .product__price {
-  flex: 1 1 30%;
+  flex: 1 1 100%;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -300,8 +306,9 @@ const toggleSelect = () => {
   padding: 20px 0;
 
   @media (min-width: 1024px) {
+    flex: 1 1 30%;
     max-width: 285px;
-    padding: 32px;
+    padding: 1rem;
   }
 }
 
@@ -342,7 +349,7 @@ const toggleSelect = () => {
 
 .product__action {
   padding: 20px 0 0;
-  flex: 1 1 30%;
+  flex: 1 1 100%;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
@@ -350,8 +357,9 @@ const toggleSelect = () => {
   gap: 20px;
 
   @media (min-width: 1024px) {
+    flex: 1 1 30%;
     flex-flow: row nowrap;
-    padding: 32px;
+    padding: 1rem;
     gap: 24px;
   }
 }
@@ -374,6 +382,7 @@ const toggleSelect = () => {
 
   @media (min-width: 1024px) {
     width: 196px;
+
   }
 
   .select__dropdown {
