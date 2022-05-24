@@ -3,26 +3,36 @@
     <home-header />
     <main>
       <home-hero />
+      <home-purchase />
+      <home-cybersecurity />
     </main>
   </div>
 </template>
 <script setup>
 import HomeHeader from '@/components/HomeHeader/HomeHeader.vue'
 import HomeHero from '@/components/HomeHero/HomeHero.vue'
+import HomePurchase from '@/components/HomePurchase/HomePurchase.vue'
+import HomeCybersecurity from '@/components/HomeCybersecurity/HomeCybersecurity.vue'
 
 </script>
 
 <style lang="scss">
 :root {
   --font: 'Open Sans', sans;
-  --max-width: 1110px;
+  --max-width: 90%;
   --c-black: #1d1d1b;
   --c-white: #ffffff;
   --c-green: #23d1ae;
   --c-green-2: #006d5c;
+  --c-green-3: #7fe3ce;
   --c-grey: #666666;
   --c-yellow: #ffe810;
-  --bg: var(--c-black)
+  --bg: var(--c-black);
+
+  @media (min-width: 1024px) {
+    --max-width: 1110px;
+
+  }
 }
 
 *, :before, :after {
@@ -43,9 +53,12 @@ body {
   line-height: 24px;
   font-size: 16px;
   font-weight: 400;
-  background: linear-gradient(100deg, rgba(29, 29, 27, 0) 0%, #1D1D1B 55%), linear-gradient(180deg, rgba(29, 29, 27, 0) 0%, #1D1D1B 100%), linear-gradient(110deg, #23D1AE 0%, rgba(1, 50, 35, 0) 60%);
   opacity: 0.8;
   color: var(--c-white);
+
+  @media (min-width: 768px) {
+    background: linear-gradient(100deg, rgba(29, 29, 27, 0) 0%, #1D1D1B 55%), linear-gradient(180deg, rgba(29, 29, 27, 0) 0%, #1D1D1B 100%), linear-gradient(110deg, #23D1AE 0%, rgba(1, 50, 35, 0) 60%);
+  }
 }
 
 a {
@@ -56,6 +69,15 @@ a {
   &:hover {
     color: var(--c-green);
   }
+}
+
+ul, ol {
+  list-style: none;
+}
+
+button {
+  border: none;
+  background-color: transparent;
 }
 
 .icon {
@@ -72,8 +94,13 @@ a {
   background: {
     repeat: no-repeat;
     image: url("static/images/background.png");
-    position: 100% 0;
-    size: auto;
+    position: -30px 0;
+    size: 110%;
   };
+
+  @media (min-width: 768px) {
+    background-position: 100% 0;
+    background-size: auto;
+  }
 }
 </style>

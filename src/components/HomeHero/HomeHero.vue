@@ -26,7 +26,9 @@
         </li>
       </ul>
       <div class="compatibility">
-        Compatible with:
+        <h3 class="compatibility__title">
+          Compatible with:
+        </h3>
         <ul class="compatibility__list">
           <li class="compatibility__item">
             <a href="#">
@@ -55,13 +57,11 @@
         </ul>
       </div>
     </div>
-    <home-purchase />
   </section>
 </template>
 
 <script setup>
 import ElementSvg from '@/components/UI/ElementSvg/ElementSvg'
-import HomePurchase from '@/components/HomePurchase/HomePurchase.vue'
 
 const strengths = [
   {
@@ -84,110 +84,158 @@ const strengths = [
 
 <style lang="scss" scoped>
 .hero {
-  padding: 50px 0;
+  @media (min-width: 768px) {
+    padding: 50px 0 0;
+  }
+}
 
-  .hero__container {
-    display: flex;
-    flex-flow: column nowrap;
-    margin: 0 auto;
-    max-width: var(--max-width);
-    padding-right: 35%;
+.hero__container {
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 0 auto;
+  max-width: var(--max-width);
+  padding: 356px 0 0 0;
 
-    .hero__title {
-      font-weight: 700;
-      font-size: 64px;
-      line-height: 68px;
-      letter-spacing: -0.01em;
-      margin: 0 0 35px;
-    }
+  @media (min-width: 768px) {
+    padding: 0 35% 0 0;
+  }
+}
 
-    .hero__subtitle {
-      position: relative;
-      font-weight: 300;
-      font-size: 32px;
-      line-height: 36px;
-      margin: 0 0 50px;
-      opacity: 0.8;
+.hero__title {
+  letter-spacing: -0.01em;
+  margin: 0 0 35px;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 40px;
 
-      &:before {
-        content: '_______';
-        position: absolute;
-        top: -1.2em;
-      }
-    }
+  @media (min-width: 768px) {
+    font-size: 64px;
+    line-height: 68px;
+  }
+}
 
-    .strengths {
-      display: flex;
-      flex-flow: column nowrap;
-      gap: 20px;
-      list-style: none;
-      margin: 0 0 60px 30px;
-      max-width: 500px;
+.hero__subtitle {
+  position: relative;
+  font-weight: 300;
+  margin: 0 0 25px;
+  opacity: 0.8;
+  font-size: 24px;
+  line-height: 27px;
 
-      .strengths__item {
-        position: relative;
+  @media (min-width: 768px) {
+    font-size: 32px;
+    line-height: 36px;
+    margin: 0 0 50px;
+  }
 
-        .strengths__intro, .strengths__description {
-          font-size: 24px;
-          line-height: 32px;
-        }
+  &:before {
+    content: '_______';
+    position: absolute;
+    top: -1.2em;
+  }
+}
 
-        .strengths__intro {
-          font-weight: 400;
-          opacity: 1;
-        }
+.strengths {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 20px;
+  list-style: none;
+  margin: 0 0 60px 30px;
+  max-width: 500px;
+}
 
-        .strengths__description {
-          opacity: .8;
-          font-weight: 300;
-        }
+.strengths__item {
+  position: relative;
+}
 
-        .strengths__list-style {
-          color: var(--c-green);
-          position: absolute;
-          top: 10px;
-          left: -30px;
-        }
-      }
-    }
+.strengths__intro, .strengths__description {
+  font-size: 20px;
+  line-height: 32px;
 
-    .compatibility {
-      font-weight: 300;
-      font-size: 16px;
-      line-height: 20px;
+  @media (min-width: 768px) {
+    font-size: 24px;
+    line-height: 32px;
+  }
+}
 
-      display: flex;
-      flex-flow: row nowrap;
-      gap: 24px;
+.strengths__intro {
+  font-weight: 400;
+  opacity: 1;
+}
 
-      margin-bottom: 12px;
+.strengths__description {
+  opacity: .8;
+  font-weight: 300;
+}
 
-      .compatibility__list {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-        list-style: none;
-      }
+.strengths__list-style {
+  color: var(--c-green);
+  position: absolute;
+  top: 10px;
+  left: -30px;
+}
 
-      .compatibility__item, a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
+.compatibility {
+  display: flex;
+  flex-flow: column wrap;
+  gap: 13px;
+  margin-bottom: 12px;
+  padding: 0 30px;
 
-      .compatibility__item {
-        font-size: 12px;
+  @media (min-width: 768px) {
+    flex-flow: row nowrap;
+    padding: 0;
+    gap: 24px;
+  }
+}
 
-        &:not(&:last-child) {
-          &::after {
-            content: '';
-            height: 24px;
-            width: 1px;
-            margin-left: 16px;
-            background-color: var(--c-grey);
-            opacity: 0.4;
-          }
-        }
+.compatibility__title {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+
+  @media (min-width: 768px) {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
+.compatibility__list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+
+  @media (min-width: 768px) {
+    justify-content: flex-start;
+    font-size: 16px;
+    line-height: 20px;
+    gap: 16px;
+  }
+}
+
+.compatibility__item, a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.compatibility__item {
+  font-size: 12px;
+  position: relative;
+
+  &:not(&:last-child) {
+    &::after {
+      content: '';
+      height: 24px;
+      width: 1px;
+      margin: 0 7vw;
+      background-color: var(--c-grey);
+      opacity: 0.4;
+
+      @media (min-width: 768px) {
+        justify-content: flex-start;
+        margin: 0 0 0 16px;
       }
     }
   }
